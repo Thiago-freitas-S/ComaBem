@@ -1,38 +1,38 @@
 class Usuario{
-  int? _codigo;
-  String? _nome;
-  String? _login;
-  String? _senha;
+  int? _codigousoa;
+  String? _nomeusoa;
+  String? _loginusoa;
+  String? _senhausoa;
 
   Usuario({
-    int? codigo,
-    String? senha,
-    String? login,
-    String? nome
+    int? codigousoa,
+    String? senhausoa,
+    String? loginusoa,
+    String? nomeusoa
 }){
-    _codigo = codigo;
-    _login = login;
-    _nome = nome;
-    _senha = senha;
+    _codigousoa = codigousoa;
+    _loginusoa = loginusoa;
+    _nomeusoa = nomeusoa;
+    _senhausoa = senhausoa;
   }
 
   //Getters
   //exemplo Tradicional
-  String? get login{
-      return _login;
+  String? get loginusoa{
+      return _loginusoa;
   }
   //metodo ao estilo dart
-  int? get codigo => _codigo;
-  String? get nome => _nome;
-  String? get senha => _senha;
+  int? get codigousoa => _codigousoa;
+  String? get nomeusoa => _nomeusoa;
+  String? get senhausoa => _senhausoa;
 
   //setters
   //set tradicional
-  set codigo(int? codigo){
-    _codigo = codigo;
+  set codigousoa(int? codigousoa){
+    _codigousoa = codigousoa;
   }
   //metodo ao estilo dart
-  set nome(String? nome) => _nome = nome;
-  set login(String? login) => _login = login;
-  set senha(String? senha) => _senha = senha;
+  set nomeusoa(String? nome) => _nomeusoa = nomeusoa;
+  set loginusoa(String? login) => _loginusoa = loginusoa;
+  set senhausoa(String? senhausoa) => _senhausoa = senhausoa;
 }
