@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:projetoflutter/tela_login.dart';
-import 'usuario.dart';
-import 'tipo.dart';
-import 'restaurante.dart';
-import 'tela_login.dart';
 
 void main() {
   runApp(const MyApp());

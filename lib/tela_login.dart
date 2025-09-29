@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'usuario.dart';
 import 'tela_home.dart';
 import 'banco/usuario.dao.dart';
 
