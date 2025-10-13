@@ -36,8 +36,10 @@ void initState(){
           title: const Text("Lista de Restaurantes"),
           actions: [
               IconButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => TelaCadRestaurante()));
-              }, icon: Icon(Icons.add))
+                 Navigator.push(context, MaterialPageRoute(builder: (context) => TelaCadRestaurante()));
+
+              }, icon: Icon(Icons.add)
+              )
           ],
       ),
       body: Padding(padding: const EdgeInsets.all(30),
