@@ -1,29 +1,34 @@
+import 'package:projetoflutter/tipo.dart';
+
 class Restaurante{
   int? _codigorestaurante;
   String? _nomerestaurante;
-  double? _latitude;
-  double? _longitude;
+  String? _latitude;
+  String? _longitude;
+  int? _culinaria;
 
   Restaurante({
     int? codigorestaurante,
     String? nomerestaurante,
-    double? latitude,
-    double? longitude,
-
+    String? latitude,
+    String? longitude,
+    int? culinaria,
   }){
     _codigorestaurante = codigorestaurante;
     _nomerestaurante = nomerestaurante;
     _latitude = latitude;
     _longitude = longitude;
-
+    _culinaria = culinaria;
   }
   int? get codigorestaurante => _codigorestaurante;
   String? get nomerestaurante => _nomerestaurante;
-  double? get latitude => _latitude;
-  double? get longitude => _longitude;
+  String? get latitude => _latitude;
+  String? get longitude => _longitude;
+  int? get culinaria => _culinaria;
 
   set nomerestaurante(String? nomerestaurante) => _nomerestaurante = nomerestaurante;
   set codigorestaurante(int? codigorestaurante) => _codigorestaurante = codigorestaurante;
-  set latitude(double? latitude) => _latitude = latitude;
-  set longitude(double? longitude) => _longitude = longitude;
+  set latitude(String? latitude) => _latitude = latitude;
+  set longitude(String? longitude) => _longitude = longitude;
+  set culinaria(int? culinaria) => _culinaria = culinaria;
 }

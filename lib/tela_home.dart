@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:projetoflutter/banco/restaurante_dao.dart';
 import 'package:projetoflutter/restaurante.dart';
 import 'package:projetoflutter/tela_cad_restaurante.dart';
+import 'package:projetoflutter/tela_edit_restaurante.dart';
 
 class Telahome extends StatefulWidget {
   const Telahome({super.key});
@@ -35,9 +36,13 @@ void initState(){
       appBar: AppBar(
           title: const Text("Lista de Restaurantes"),
           actions: [
-              IconButton(onPressed: (){
-                 Navigator.push(context, MaterialPageRoute(builder: (context) => TelaCadRestaurante()));
-
+              IconButton(onPressed: () async{
+                 final t = await Navigator.push(context, MaterialPageRoute(builder: (context) => TelaCadRestaurante()));
+                  if(t == false || t == null){
+                    setState((){
+                      carregaRestaurantes();
+                    });
+                  }
               }, icon: Icon(Icons.add)
               )
           ],
@@ -55,23 +60,34 @@ void initState(){
                 trailing: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    IconButton(onPressed: (){}, icon: Icon(Icons.edit, color: Colors.orange)),
+                    IconButton(onPressed: ()async{
+                      TelaEditRestaurante.restaurante = await RestauranteDAO.listar(r.codigorestaurante);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => TelaEditRestaurante()));
+                    }, icon: Icon(Icons.edit, color: Colors.orange)),
                     IconButton(onPressed: (){
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) =>
                       AlertDialog(
                         title: Text('Apagar Restaurante'),
                         content: Text('Excluir Restaurante?'),
-                        actions: [
+                        actions:<Widget> [
                           TextButton(onPressed: (){
-
+                            RestauranteDAO.excluir(r);
+                            setState(() {
+                              carregaRestaurantes();
+                            });
+                            Navigator.pop(context);
                           },
                               child: Text('Sim')
                           ),
                           TextButton(onPressed: (){
-
+                            Navigator.pop(context);
                           },
                               child: Text('Não')
                           )
                         ],
+                      ),
                       );
                     },
                     icon: Icon(Icons.delete, color: Colors.red,))
@@ -83,8 +99,13 @@ void initState(){
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
-         Navigator.push(context, MaterialPageRoute(builder: (context) => TelaCadRestaurante()));
+        onPressed: () async{
+         final t = await Navigator.push(context, MaterialPageRoute(builder: (context) => TelaCadRestaurante()));
+         if(t == false || t == null){
+           setState(() {
+             carregaRestaurantes();
+           });
+         }
         },
         child: Icon(Icons.add)
       ),
