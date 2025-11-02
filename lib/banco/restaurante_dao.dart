@@ -14,7 +14,7 @@ class RestauranteDAO{
         {
       'nm_restaurante': nome,
       'latitude_restaurante': latitude,
-      'logitude_restaurante': longitude,
+      'longitude_restaurante': longitude,
       'cd_tipo':tipo
     },
     where: 'cd_restaurante =?',
@@ -34,7 +34,7 @@ class RestauranteDAO{
       nomerestaurante: resultado.first['nm_restaurante'] as String,
       latitude: resultado.first['latitude_restaurante'] as String,
       longitude: resultado.first['longitude_restaurante'] as String,
-      culinaria: await TipoDAO.listar(resultado.first['cd_tipo'] as int)
+      culinaria: await TipoDAO.listar(resultado.first['cd_tipo'] as int?),
     );
   }
 
